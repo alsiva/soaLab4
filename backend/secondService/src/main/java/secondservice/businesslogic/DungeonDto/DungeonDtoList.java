@@ -1,11 +1,10 @@
-package volki.soalab.secondservice.DungeonDto;
+package secondservice.businesslogic.DungeonDto;
 
 import jakarta.xml.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Comparator;
 import java.util.List;
 
 @Data

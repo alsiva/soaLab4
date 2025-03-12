@@ -1,4 +1,4 @@
-package volki.soalab.secondservice.config;
+package secondservice.businesslogic.config;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.Produces;
@@ -17,6 +17,7 @@ public class CustomClient {
 
     // Метод для создания клиента, который игнорирует самоподписанные сертификаты
     @Produces
+    @ApplicationScoped
     public Client createClient() throws NoSuchAlgorithmException, KeyManagementException {
         // Создаем TrustManager, который будет игнорировать проверку сертификатов
         TrustManager[] trustAllCertificates = new TrustManager[]{
@@ -40,8 +41,8 @@ public class CustomClient {
         // Создаем клиента с использованием настроенного SSLContext
         return ClientBuilder.newBuilder()
                 .sslContext(sslContext) // Устанавливаем SSLContext
-                .property("jersey.config.client.connectTimeout", 5000)  // Таймаут на подключение
-                .property("jersey.config.client.readTimeout", 10000)   // Таймаут на чтение
+                .property("jersey.config.client.connectTimeout", 50000000)  // Таймаут на подключение
+                .property("jersey.config.client.readTimeout", 100000000)   // Таймаут на чтение
                 .build();
     }
 }

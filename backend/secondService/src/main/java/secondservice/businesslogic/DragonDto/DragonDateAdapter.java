@@ -1,4 +1,4 @@
-package volki.soalab.secondservice.DragonDto;
+package secondservice.businesslogic.DragonDto;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 

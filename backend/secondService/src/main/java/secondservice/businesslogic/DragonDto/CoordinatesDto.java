@@ -1,4 +1,4 @@
-package volki.soalab.secondservice.DragonDto;
+package secondservice.businesslogic.DragonDto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -12,13 +12,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement(name = "coordinates") // JAXB эквивалент @JacksonXmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CoordinatesDto {
-
+public class CoordinatesDto implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Max(value = 411, message = "x must be lower or equal than 411")
     @NotNull(message = "x cannot be null")
     @NotEmpty(message = "x cannot be empty")

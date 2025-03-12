@@ -1,0 +1,76 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ejb.businesslogic.secondservice/" name="FindByCaveDepthRemote" targetNamespace="http://ejb.businesslogic.secondservice/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ejb.businesslogic.secondservice/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ejb.businesslogic.secondservice/" version="1.0">
+            <xs:element name="coordinates" type="tns:coordinatesDto"/>
+            <xs:element name="dragon" type="tns:dragonDto"/>
+            <xs:element name="getDragon" type="tns:getDragon"/>
+            <xs:element name="getDragonResponse" type="tns:getDragonResponse"/>
+            <xs:element name="head" type="tns:dragonHeadDto"/>
+            <xs:complexType name="getDragon">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getDragonResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:dragonDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="dragonDto">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="name" type="xs:string"/>
+                    <xs:element minOccurs="0" name="coordinates" type="tns:coordinatesDto"/>
+                    <xs:element minOccurs="0" name="creationDateRolex" type="xs:string"/>
+                    <xs:element minOccurs="0" name="age" type="xs:long"/>
+                    <xs:element minOccurs="0" name="wingspan" type="xs:float"/>
+                    <xs:element minOccurs="0" name="speaking" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="color" type="tns:colorDto"/>
+                    <xs:element minOccurs="0" name="head" type="tns:dragonHeadDto"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="coordinatesDto">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="x" type="xs:double"/>
+                    <xs:element minOccurs="0" name="y" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="dragonHeadDto">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="eyesCount" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="colorDto">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="GREEN"/>
+                    <xs:enumeration value="BLUE"/>
+                    <xs:enumeration value="ORANGE"/>
+                    <xs:enumeration value="WHITE"/>
+                    <xs:enumeration value="BROWN"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getDragon">
+        <wsdl:part element="ns1:getDragon" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDragonResponse">
+        <wsdl:part element="ns1:getDragonResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="ns1:Exception" name="Exception"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="FindByCaveDepthRemote">
+        <wsdl:operation name="getDragon">
+            <wsdl:input message="ns1:getDragon" name="getDragon"> </wsdl:input>
+            <wsdl:output message="ns1:getDragonResponse" name="getDragonResponse"> </wsdl:output>
+            <wsdl:fault message="ns1:Exception" name="Exception"> </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ejb.businesslogic.secondservice/" name="MoveToCaveRemote" targetNamespace="http://ejb.businesslogic.secondservice/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ejb.businesslogic.secondservice/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ejb.businesslogic.secondservice/" version="1.0">
+            <xs:element name="moveToCave" type="tns:moveToCave"/>
+            <xs:element name="moveToCaveResponse" type="tns:moveToCaveResponse"/>
+            <xs:complexType name="moveToCave">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:int"/>
+                    <xs:element name="arg1" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="moveToCaveResponse">
+                <xs:sequence>
+                    <xs:element name="return" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception" type="tns:Exception"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="moveToCaveResponse">
+        <wsdl:part element="ns1:moveToCaveResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="moveToCave">
+        <wsdl:part element="ns1:moveToCave" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part element="ns1:Exception" name="Exception"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="MoveToCaveRemote">
+        <wsdl:operation name="moveToCave">
+            <wsdl:input message="ns1:moveToCave" name="moveToCave"> </wsdl:input>
+            <wsdl:output message="ns1:moveToCaveResponse" name="moveToCaveResponse"> </wsdl:output>
+            <wsdl:fault message="ns1:Exception" name="Exception"> </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

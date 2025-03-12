@@ -1,4 +1,4 @@
-package volki.soalab.secondservice.DungeonDto;
+package secondservice.businesslogic.DungeonDto;
 
 
 import jakarta.validation.constraints.Min;

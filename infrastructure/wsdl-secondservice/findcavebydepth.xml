@@ -1,0 +1,23 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.ejb.businesslogic.secondservice/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://ejb.businesslogic.secondservice/" name="FindByCaveDepthService" targetNamespace="http://impl.ejb.businesslogic.secondservice/">
+    <wsdl:import location="http://localhost:8080/secondService/FindByCaveDepth?wsdl=FindByCaveDepthRemote.wsdl" namespace="http://ejb.businesslogic.secondservice/"> </wsdl:import>
+    <wsdl:binding name="FindByCaveDepthServiceSoapBinding" type="ns1:FindByCaveDepthRemote">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getDragon">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getDragon">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDragonResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="FindByCaveDepthService">
+        <wsdl:port binding="tns:FindByCaveDepthServiceSoapBinding" name="FindByCaveDepthPort">
+            <soap:address location="http://localhost:8080/secondService/FindByCaveDepth"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
