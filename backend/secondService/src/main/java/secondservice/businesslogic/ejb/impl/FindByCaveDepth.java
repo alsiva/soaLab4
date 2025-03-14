@@ -25,9 +25,9 @@ public class FindByCaveDepth implements FindByCaveDepthRemote {
     HTTPClientLocal httpClient;
     @Override
     public DragonDto getDragon(boolean max) throws Exception {
-        String baseUrl = "http://localhost:8081";
+        String baseUrl = "http://localhost:8081/firstService";
         String urlDungeons = baseUrl + "/dungeons";
-        String urlDragon = baseUrl + "/dragons/";
+        String urlDragon = baseUrl + "/dragons";
         Long dragonId = null;
         try(Response dungeonsResponse = httpClient.getRequest(urlDungeons)) {
             if (dungeonsResponse.getStatus() == 200) {
@@ -49,7 +49,7 @@ public class FindByCaveDepth implements FindByCaveDepthRemote {
                 throw new Exception("Error: " + dungeonsResponse.getStatus() + ", Message: " + errorMessage);
             }
         }
-        urlDragon = urlDragon + dragonId;
+        urlDragon = urlDragon + "/" + dragonId;
         try(Response dragonResponse = httpClient.getRequest(urlDragon)) {
             System.out.println("Response code " + dragonResponse.getStatus());
             if (dragonResponse.getStatus() == 200) {
