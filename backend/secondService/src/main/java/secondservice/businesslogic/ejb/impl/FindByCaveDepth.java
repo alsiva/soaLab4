@@ -25,7 +25,7 @@ public class FindByCaveDepth implements FindByCaveDepthRemote {
     HTTPClientLocal httpClient;
     @Override
     public DragonDto getDragon(boolean max) throws Exception {
-        String baseUrl = "http://localhost:8081/firstService";
+        String baseUrl = "https://localhost:8082/firstService";
         String urlDungeons = baseUrl + "/dungeons";
         String urlDragon = baseUrl + "/dragons";
         Long dragonId = null;

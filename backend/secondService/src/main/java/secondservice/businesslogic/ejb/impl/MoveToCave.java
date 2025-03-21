@@ -24,7 +24,7 @@ public class MoveToCave implements MoveToCaveRemote {
 
     @Override
     public boolean moveToCave(int teamId, int caveId) throws Exception {
-        String baseUrl = "http://localhost:8081/firstService";
+        String baseUrl = "https://localhost:8082/firstService";
         String teamsUrl = baseUrl + "/teams/" + teamId;
         try(Client client = new CustomClient().createClient()){
             WebTarget target = client.target(teamsUrl);

@@ -6,9 +6,9 @@ import router from './router'
 import { UrlService } from './scripts/urlService'
 
 const app = createApp(App)
-const base_url = "http://localhost:8080"
-const first_service = "https://127.0.0.1:8181/firstService"
-const second_service = "http://127.0.0.1:8080/secondService/api/killer"
+const base_url = "https://localhost:8080"
+const first_service = "https://127.0.0.1:8082/firstService"
+const second_service = "https://127.0.0.1:8081/api/killer"
 const urlService = new UrlService(base_url)
 const urlServiceFirst = new UrlService(first_service)
 const urlServiceSecond = new UrlService(second_service)
